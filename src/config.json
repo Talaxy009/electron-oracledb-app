@@ -1,0 +1,8 @@
+{
+    "user": "DBLESSON",
+    "password": "DBLESSON",
+    "IP": "127.0.0.1",
+    "PORT": 1521,
+    "SCHEMA": "XZ",
+    "connectString": "127.0.0.1:1521/XE"
+}
