@@ -9,21 +9,22 @@
 CREATE table Course(cno VARCHAR2(5) PRIMARY KEY, cname VARCHAR2(20) NOT NULL, ccredit NUMBER(2), tno VARCHAR2(20), FOREIGN KEY(tno) REFERENCES Teacher(tno) on delete cascade);
 
 CREATE table Student(sno VARCHAR2(17) PRIMARY KEY, sname VARCHAR2(10) NOT NULL, sage NUMBER(3), ssex VARCHAR2(3));
-create table Teacher (TNO VARCHAR2(20) primary key, TName VARCHAR2(20) not null, TTitle VARCHAR2(8) not null, TSalary NUMBER(30,2));
+
+CREATE table Teacher (TNO VARCHAR2(20) primary key, TName VARCHAR2(20) not null, TTitle VARCHAR2(8) not null, TSalary NUMBER(30,2));
 
 CREATE table Sc(sno VARCHAR2(17), cno VARCHAR2(5), grade NUMBER(5,2), PRIMARY KEY(sno,cno), FOREIGN KEY(sno) REFERENCES Student(sno) on delete cascade, FOREIGN KEY(cno) REFERENCES Course(cno) on delete cascade);
 
 --视图
-create view StudentSummary as (
+CREATE view StudentSummary as (
 SELECT sno,SUM(ccredit)sum,AVG(grade)avg,MAX(grade)max,MIN(grade)min FROM sc join course on sc.cno = course.cno
 GROUP BY sno
 );
 
-create view TeacherSummary as (
+CREATE view TeacherSummary as (
 SELECT ttitle,AVG(tsalary)avgSalary,count(ttitle)members FROM teacher GROUP BY ttitle
 );
 
-create view CourseSummary as (
+CREATE view CourseSummary as (
 SELECT course.cname,AVG(grade)avgGrade,MAX(grade)maxGrade,MIN(grade)minGrade FROM sc join course on sc.cno = course.cno
 GROUP BY course.cname
 );

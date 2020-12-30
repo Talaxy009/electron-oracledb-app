@@ -6,6 +6,10 @@
 	"directories": {
 		"test": "test"
 	},
+	"keywords": [
+		"electron",
+		"oracle-database"
+	  ],
 	"scripts": {
 		"format": "prettier --write \"**/*.{js,jsx}\"",
 		"build": "parcel build src/renderer/*.html --public-url ./",
