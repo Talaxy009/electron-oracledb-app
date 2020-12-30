@@ -7,6 +7,7 @@
 		"test": "test"
 	},
 	"scripts": {
+		"format": "prettier --write \"**/*.{js,jsx}\"",
 		"build": "parcel build src/renderer/*.html --public-url ./",
 		"dev": "parcel watch src/renderer/*.html --no-hmr --public-url ./",
 		"start": "electron src/main/index.js"
@@ -28,5 +29,8 @@
 		"react-dom": "^17.0.1",
 		"electron": "^11.0.4",
 		"parcel-bundler": "^1.12.4"
+	},
+	"devDependencies": {
+		"prettier": "^2.2.1"
 	}
 }
